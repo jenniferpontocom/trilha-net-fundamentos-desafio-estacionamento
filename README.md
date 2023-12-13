@@ -1,6 +1,9 @@
 # DIO - Trilha .NET - Fundamentos
 www.dio.me
 
+# Observações
+Para resolver o projeto, antes de qualquer coisa, precisei atualizar o .net para a versão 8.0, pois o arquivo estava inicialmente com a 6.0;
+
 ## Desafio de projeto
 Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
 
