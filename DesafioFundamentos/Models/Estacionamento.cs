@@ -18,25 +18,31 @@ namespace DesafioFundamentos.Models
             return veiculos;
         }
 
-        public void AdicionarVeiculo(string placa)
-        {
-            if(VerificarCaracteres(placa)){
-                if(!VerificarPlacasRepetidas(placa)){
+        public void AdicionarVeiculo(string placa) {
+
+            if (VerificarCaracteres(placa)) {
+
+                if (VerificarPlacasRepetidas(placa)) {
+                    
+                    Console.WriteLine($"O veículo de placa {placa.ToUpper()} já consta em nosso sistema.");
+
+                } else {
+
                     veiculos.Add(placa);
                     Console.WriteLine($"O veículo de placa {placa.ToUpper()} foi estacionado com sucesso!");
-                } else {
-                    Console.WriteLine($"O veículo de placa {placa.ToUpper()} já consta em nosso sistema.");
+                    
                 }
-            }else{
+            } else {
                 Console.WriteLine("Placa digitada inválida, tente novamente.");
             }
+
         }
 
         public bool VerificarPlacasRepetidas(string placa)
         {
-            foreach(string ItemListaVeiculos in veiculos)
+            foreach (string itemListaVeiculos in veiculos)
             {
-                if (placa == ItemListaVeiculos)
+                if (placa == itemListaVeiculos)
                     return true;
             }
             return false;
@@ -44,40 +50,41 @@ namespace DesafioFundamentos.Models
 
         public bool VerificarCaracteres(string placa)
         {
-            int numerosCaracteresPlaca = placa.Length;
-            
-            if (numerosCaracteresPlaca == valorPadraoPlaca)
-                return true;
-            return false;
+            return placa.Length == valorPadraoPlaca ? true : false;
         }
 
 
          public void RemoverVeiculo(string placa, decimal horasEstacionadas)
         {
             
-            if (veiculos.Any(veiculoPlaca => veiculoPlaca.ToUpper() == placa.ToUpper()))
-            {
+            if (veiculos.Any(veiculoPlaca => veiculoPlaca.ToUpper() == placa.ToUpper())) {
+
                 decimal valorTotal = (horasEstacionadas * precoPorHora) + precoInicial;
                 veiculos.Remove(placa);
+
                 Console.WriteLine($"O veículo {placa.ToUpper()} foi removido e o preço total foi de: R$ {valorTotal}");
+
             }
-            else
-            {
+            else {
+
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+
             }
         }
 
         public void ListarVeiculos()
         {
-            if (veiculos.Any())
-            {
+            if (veiculos.Any()) {
+
                 Console.WriteLine("Os veículos estacionados são:");
-                foreach(string veiculoPlaca in veiculos)
-                {
+                
+                foreach(string veiculoPlaca in veiculos) {
+
                     Console.WriteLine(veiculoPlaca.ToUpper());
                 }
-            } else
-            {
+
+            } else {
+
                 Console.WriteLine("Não há veículos estacionados.");
             }
         }

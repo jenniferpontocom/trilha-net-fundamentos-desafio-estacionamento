@@ -41,7 +41,6 @@ public class EstacionamentoTests
 
         // assert
         Assert.False(resultadoTest);
-
     }
 
     [Fact]
