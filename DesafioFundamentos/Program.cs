@@ -36,10 +36,10 @@ while (exibirMenu)
         case "2":
             Console.WriteLine("Digite a placa do veículo para remover:");
             string placa2 = Console.ReadLine();
-
+            
             Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
             decimal horasEstacionadas = Convert.ToDecimal(Console.ReadLine());
-            
+
             es.RemoverVeiculo(placa2, horasEstacionadas);
             break;
 
